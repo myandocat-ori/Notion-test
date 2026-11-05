@@ -22,6 +22,7 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
       - name: 바뀐 게 있으면 저장소에 반영
+        if: ${{ !cancelled() }}
         run: |
           git config user.name "notion-sync"
           git config user.email "actions@users.noreply.github.com"

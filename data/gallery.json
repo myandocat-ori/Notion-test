@@ -1,1 +1,58 @@
-[]
+[
+ {
+  "id": "p0apm0nsb",
+  "title": "사진 1",
+  "body": "",
+  "image": "images/apm0nsb.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:42.628Z"
+ },
+ {
+  "id": "p1akqq3fp",
+  "title": "사진 2",
+  "body": "",
+  "image": "images/akqq3fp.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:41.628Z"
+ },
+ {
+  "id": "p2a09tfbu",
+  "title": "사진 3",
+  "body": "",
+  "image": "images/a09tfbu.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:40.628Z"
+ },
+ {
+  "id": "p3ayt0o5x",
+  "title": "사진 4",
+  "body": "",
+  "image": "images/ayt0o5x.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:39.628Z"
+ },
+ {
+  "id": "p4a6bvkbn",
+  "title": "사진 5",
+  "body": "",
+  "image": "images/a6bvkbn.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:38.628Z"
+ },
+ {
+  "id": "p5ablyy2h",
+  "title": "사진 6",
+  "body": "",
+  "image": "images/ablyy2h.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:37.628Z"
+ },
+ {
+  "id": "p6a1qmmdu",
+  "title": "사진 7",
+  "body": "",
+  "image": "images/a1qmmdu.webp",
+  "category": "",
+  "created_at": "2026-11-05T11:36:36.628Z"
+ }
+]

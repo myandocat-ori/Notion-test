@@ -1,1 +1,20 @@
-[]
+[
+ {
+  "id": "40f6adfac8fa809c815af38a1f03cf0a",
+  "title": "오리",
+  "body": "나이 · 3\n생일 · 5월 5일\n물가를 좋아하는 느긋한 오리.",
+  "image": "data/img/40f6adfa-2c208c791f.jpg",
+  "category": "",
+  "created_at": "2026-11-05",
+  "edited": "2026-11-05T09:46:00.000Z"
+ },
+ {
+  "id": "40f6adfac8fa80d1b2bbed3e0828a8d6",
+  "title": "거위",
+  "body": "나이 · 5\n생일 · 9월 21일\n무리의 맨 앞에서 길을 여는 당찬 거위.",
+  "image": "data/img/40f6adfa-2e8095011a.jpg",
+  "category": "",
+  "created_at": "2026-11-05",
+  "edited": "2026-11-05T09:46:00.000Z"
+ }
+]

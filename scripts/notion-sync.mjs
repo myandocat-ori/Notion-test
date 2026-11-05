@@ -13,12 +13,15 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function nf(path, ver, opt = {}) {
   for (let i = 0; i < 5; i++) {
-    const r = await fetch(API + path, {
-      method: opt.method || 'GET',
-      headers: { Authorization: 'Bearer ' + TOKEN, 'Notion-Version': ver, 'Content-Type': 'application/json' },
-      body: opt.body ? JSON.stringify(opt.body) : undefined,
-      signal: AbortSignal.timeout(30000)
-    });
+    let r;
+    try {
+      r = await fetch(API + path, {
+        method: opt.method || 'GET',
+        headers: { Authorization: 'Bearer ' + TOKEN, 'Notion-Version': ver, 'Content-Type': 'application/json' },
+        body: opt.body ? JSON.stringify(opt.body) : undefined,
+        signal: AbortSignal.timeout(30000)
+      });
+    } catch (e) { if (i >= 3) throw e; await sleep(2000 * (i + 1)); continue; } // 일시적인 연결 지연은 다시 시도
     if (r.status === 429) { await sleep((+r.headers.get('retry-after') || 1) * 1000); continue; }
     if (!r.ok) throw new Error(path + ' → ' + r.status + ' ' + (await r.text()).slice(0, 200));
     await sleep(340); // 노션은 초당 약 3회까지
@@ -115,7 +118,7 @@ async function saveImage(img, pid) {
 }
 
 const BG = { gray: '#9b9a97', brown: '#9f6b53', orange: '#d9730d', yellow: '#cb912f', green: '#448361', blue: '#337ea9', purple: '#9065b0', pink: '#c14c8a', red: '#d44c47' };
-const MAXB = 800, MAXD = 6;
+const MAXB = 4000, MAXD = 6;
 const PWRE = /^\s*(비밀번호|암호|password|pw)\s*[:：]\s*(.+?)\s*$/i;
 async function inlineImage(f, budget) {
   if (!f) return null;

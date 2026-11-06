@@ -171,7 +171,7 @@ async function pageBody(pid, ver, propPw) {
       const put = (o, k) => { if (k && k.length) o.c = k; out.push(o); };
       if (b.type !== 'numbered_list_item') n = 0;
       switch (b.type) {
-        case 'paragraph': { lines.push(t); const k = await kids(); if (r.length || k.length) put({ t: 'p', r }, k); break; }
+        case 'paragraph': { lines.push(t); const k = await kids(); if (r.length || k.length) put({ t: 'p', r }, k); else if (out.length) out.push({ t: 'p', r: [] }); break; }
         case 'heading_1': case 'heading_2': case 'heading_3': {
           lines.push('', t);
           const h = b.type.slice(-1), k = await kids();
@@ -226,6 +226,7 @@ async function pageBody(pid, ver, propPw) {
         default: break;
       }
     }
+    while (out.length && out[out.length - 1].t === 'p' && !(out[out.length - 1].r || []).length && !out[out.length - 1].c) out.pop();
     return out;
   }
   let blocks = await walk(pid, 0);
